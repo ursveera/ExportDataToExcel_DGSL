@@ -9,6 +9,7 @@ using ExportDataToExcel_DGSL;
             ExportDataToExcel_SSG.ExportDataTableToExcel(dt, "d:\Filename.xls");//single datatable to excel
             DataTable[] dd = new DataTable[10];
             ExportDataToExcel_SSG.MergingMultiDataTableAs_singleExcelSheet(dd, "d:\File.xls,false);
+            ExportDataToExcel_SSG.MultiDataTableAs_MultiExcelFile(dd, "d:\File.xls");
             //Export array of datatatable  to Excel sheet
             //dd array of datatatable
             //"filename"
@@ -24,6 +25,10 @@ using ExportDataToExcel_DGSL;
             //      1     2    3
             //      11    22    2
             //      12    232   34
+            
+            DataSet ds=new DataSet();
+           ExportDataToExcel_SSG.MergingMultiDataSetAs_singleExcelSheet(ds, "d:\File.xls",false);
+           
             }
             catch (Exception)
             {

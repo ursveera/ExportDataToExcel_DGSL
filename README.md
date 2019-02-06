@@ -140,10 +140,10 @@ class Program
             dt.Clear();
             dt.Columns.Add("Name");
             dt.Columns.Add("Marks");
-            DataRow veera = dt.NewRow();
-            veera["Name"] = "Demo";
-            veera["Marks"] = "500";
-            dt.Rows.Add(veera);
+            DataRow dr = dt.NewRow();
+            dr["Name"] = "Demo";
+            dr["Marks"] = "500";
+            dt.Rows.Add(dr);
 
             ExportDataToExcel_SSG.ExportDataTableToExcel(dt, path);
         }

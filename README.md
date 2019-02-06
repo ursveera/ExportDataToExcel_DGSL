@@ -120,3 +120,92 @@
 		In Future Update:
 
 		It will export multi datatable as single excel file with multiple sheets.
+		
+class Program
+    {
+        
+        static void Main(string[] args)
+        {
+
+            Program p = new Program();
+            p.dttoExcelSingle(@"d:\DemoSingleDaTatableToExcel.xls");
+            p.MergeManyDatatabletoSingleExcel(@"d:\ManyDatatableasSingleExcel.xls");
+            p.ArrayOfDtToMultiExcel(@"d:\Filename.xls");
+
+        }
+        public void dttoExcelSingle(string path)
+        {
+            DataTable dt = new DataTable();
+            dt.Clear();
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Marks");
+            DataRow veera = dt.NewRow();
+            veera["Name"] = "Demo";
+            veera["Marks"] = "500";
+            dt.Rows.Add(veera);
+
+            ExportDataToExcel_SSG.ExportDataTableToExcel(dt, path);
+        }
+        public void MergeManyDatatabletoSingleExcel(string path)
+        {
+            DataTable[] dd = new DataTable[3];
+            dd[0] = new DataTable();
+            dd[1] = new DataTable();
+            dd[0].Clear();
+            dd[0].Columns.Add("Sno");
+            dd[0].Columns.Add("Name");
+            dd[0].Columns.Add("Phone");
+            dd[0].Columns.Add("address");
+            DataRow dr1 = dd[0].NewRow();
+            dr1["Sno"] = 1;
+            dr1["Name"] = "Sample";
+            dr1["Phone"] = "1245645690";
+            dr1["address"] = "Pondicherry";
+            dd[0].Rows.Add(dr1);
+
+            dd[1].Clear();
+            dd[1].Columns.Add("Sno");
+            dd[1].Columns.Add("Name");
+            dd[1].Columns.Add("Phone");
+            dd[1].Columns.Add("address");
+            DataRow dr2 = dd[1].NewRow();
+            dr2["Sno"] = 100;
+            dr2["Name"] = "Sample";
+            dr2["Phone"] = "9876543210";
+            dr2["address"] = "Pondicherry";
+            dd[1].Rows.Add(dr2);
+            ExportDataToExcel_SSG.MergingMultiDataTableAs_singleExcelSheet(dd, path, false);  //true means with column header of datatables , false means merge all datatables rows with first datatable column header
+
+            
+        }
+        public void ArrayOfDtToMultiExcel(string path)
+        {
+            DataTable[] dd = new DataTable[3];
+            dd[0] = new DataTable();
+            dd[1] = new DataTable();
+            dd[0].Clear();
+            dd[0].Columns.Add("Sno");
+            dd[0].Columns.Add("Name");
+            dd[0].Columns.Add("Phone");
+            dd[0].Columns.Add("address");
+            DataRow dr1 = dd[0].NewRow();
+            dr1["Sno"] = 1;
+            dr1["Name"] = "Sample";
+            dr1["Phone"] = "1245645690";
+            dr1["address"] = "Pondicherry";
+            dd[0].Rows.Add(dr1);
+
+            dd[1].Clear();
+            dd[1].Columns.Add("Sno");
+            dd[1].Columns.Add("Name");
+            dd[1].Columns.Add("Phone");
+            dd[1].Columns.Add("address");
+            DataRow dr2 = dd[1].NewRow();
+            dr2["Sno"] = 100;
+            dr2["Name"] = "Sample";
+            dr2["Phone"] = "9876543210";
+            dr2["address"] = "Pondicherry";
+            dd[1].Rows.Add(dr2);
+            ExportDataToExcel_SSG.MultiDataTableAs_MultiExcelFile(dd, path);
+
+        }

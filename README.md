@@ -121,7 +121,19 @@
 
 		It will export multi datatable as single excel file with multiple sheets.
 		
-class Program
+		
+		
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using ExportDataToExcel_DGSL;
+using System.Data;
+
+
+namespace ExcelCreator
+{
+    class Program
     {
         
         static void Main(string[] args)
@@ -209,3 +221,5 @@ class Program
             ExportDataToExcel_SSG.MultiDataTableAs_MultiExcelFile(dd, path);
 
         }
+    }
+}

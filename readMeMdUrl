@@ -7,8 +7,7 @@
             p.ArrayOfDtToMultiExcel(@"d:\Filename.xls");
 
         }
-
- public void dttoExcelSingle(string path)
+        public void dttoExcelSingle(string path)
         {
             DataTable dt = new DataTable();
             dt.Clear();
@@ -21,8 +20,7 @@
 
             EasyExcelMaker.EasyExcelMaker.ExportDataTableToExcel(dt, path);
         }
-
- public void MergeManyDatatabletoSingleExcel(string path)
+        public void MergeManyDatatabletoSingleExcel(string path)
         {
             DataTable[] dd = new DataTable[3];
             dd[0] = new DataTable();
@@ -54,9 +52,7 @@
 
             
         }
-
-
- public void ArrayOfDtToMultiExcel(string path)
+        public void ArrayOfDtToMultiExcel(string path)
         {
             DataTable[] dd = new DataTable[3];
             dd[0] = new DataTable();
@@ -87,11 +83,8 @@
             EasyExcelMaker.EasyExcelMaker.MultiDataTableAs_MultiExcelFile(dd, path);
 
         }
-
-
-
-DataTable dd = new DataTable();
-
+        
+        DataTable dd = new DataTable();
             DataColumn dc = new DataColumn("Sno", Type.GetType("System.String"));
             dd.Columns.Add("Sno");
             dd.Columns.Add("Name");
